@@ -12,6 +12,7 @@ int main()
 {
     struct node *head = (struct node *)malloc(sizeof(struct node));
     struct node *current = (struct node *)malloc(sizeof(struct node));
+    void insert_node_at_beginning(struct node *head , int data);
 
     head -> data = 10 ;
     current -> data = 20 ;
@@ -23,13 +24,15 @@ int main()
     current->link = NULL;
     head->link->link=current;
     
+    insert_node_at_beginning(head,1);
     add_node(head,5);
     count_nodes(head);
     printf("first node data : %d\n",head->data);
     printf("second node data = %d\n",head->data);
     printf("third node data = %d\n",current->data);
     print_value(head);
-    
+    insert_node_at_beginning(head,1);
+    return 0;
 
 }
 
@@ -67,4 +70,11 @@ void print_value(struct node *head){
         printf("%d\n",ptr->data);
         ptr = ptr -> link ;
     }
+}
+
+void insert_node_at_beginning(struct node *head , int data){
+    struct node * temp = malloc(sizeof(struct node));
+    temp->data = data ;
+    temp->link = head ;
+    head->link = NULL;
 }
