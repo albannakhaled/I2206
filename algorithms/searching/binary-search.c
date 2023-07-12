@@ -31,3 +31,4 @@ int main() {
 
     return 0;
 }
+//The time complexity of binary search is O(log n)
