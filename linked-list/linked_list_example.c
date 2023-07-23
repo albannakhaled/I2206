@@ -8,6 +8,7 @@ struct node{
 void count_nodes(struct node *head);
 void add_node(struct node *head , int data);
 void print_value(struct node *head);
+void delete_node(struct node *head , int data);
 int main()
 {
     struct node *head = (struct node *)malloc(sizeof(struct node));
@@ -32,6 +33,8 @@ int main()
     printf("third node data = %d\n",current->data);
     print_value(head);
     insert_node_at_beginning(head,1);
+    delete_node(head,3);
+    count_nodes(head);
     return 0;
 
 }
@@ -77,4 +80,20 @@ void insert_node_at_beginning(struct node *head , int data){
     temp->data = data ;
     temp->link = head ;
     head->link = NULL;
+}
+
+// create delete node function
+void delete_node(struct node *head , int data){
+    struct node *ptr = head ;
+    struct node *temp ;
+    while(ptr->link != NULL){
+        if(ptr->link->data == data){
+            temp = ptr->link ;
+            ptr->link = ptr->link->link;
+            free(temp);
+            return ;
+        }
+        ptr = ptr->link;
+    }
+    printf("data not found\n");
 }

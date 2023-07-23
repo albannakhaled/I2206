@@ -14,14 +14,7 @@ Ex 1 –
 struct node{
     char name[20];
     char number[10];
-    struct node *next;
+    struct node *link
 };
-void main(){
-    struct node *head;
-    struct node *conductor ;
-    head = (struct node*)malloc(sizeof(struct node));
-    head -> next = NULL;
-    head -> name = "name";
-    head -> number = "123";
-    head = conductor;
-}
+
+
