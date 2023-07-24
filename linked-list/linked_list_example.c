@@ -5,10 +5,13 @@ struct node{
     int data ;
     struct node *link;
 };
+
 void count_nodes(struct node *head);
 void add_node(struct node *head , int data);
 void print_value(struct node *head);
 void delete_node(struct node *head , int data);
+
+
 int main()
 {
     struct node *head = (struct node *)malloc(sizeof(struct node));
